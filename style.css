@@ -267,6 +267,80 @@ h2 span {
     background: rgba(255,255,255,0.4);
 }
 
+.table-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem; /* Увеличен отступ от таблицы */
+    padding: 0 30px; /* Отступ слева и справа, чтобы не перекрывало края */
+    font-style: italic;
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+/* Swipe Hint for Mobile */
+.swipe-hint {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--accent-dark);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.swipe-hint i {
+    animation: swipePulse 1.5s infinite ease-in-out;
+}
+
+@keyframes swipePulse {
+    0% { transform: translateX(0); opacity: 0.6; }
+    50% { transform: translateX(8px); opacity: 1; }
+    100% { transform: translateX(0); opacity: 0.6; }
+}
+
+.mobile-only { display: none; }
+@media (max-width: 800px) {
+    .mobile-only { display: flex; }
+}
+
+/* Swipe Overlay for Table */
+.table-scroll {
+    position: relative; /* Для позиционирования руки */
+}
+
+.swipe-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; /* Чтобы рука не мешала кликать */
+    display: none; /* По умолчанию скрыто, включаем в медиа-запросе */
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.swipe-hand {
+    font-size: 3rem;
+    color: var(--accent-dark);
+    opacity: 0;
+    animation: swipeGesture 3s 2 forwards ease-in-out; /* Анимация проиграет 2 раза и исчезнет */
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+}
+
+@keyframes swipeGesture {
+    0% { transform: translateX(70px) rotate(15deg); opacity: 0; }
+    20% { transform: translateX(50px) rotate(10deg); opacity: 0.5; }
+    50% { transform: translateX(-50px) rotate(-10deg); opacity: 0.5; }
+    70% { transform: translateX(-80px) rotate(-15deg); opacity: 0; }
+    100% { transform: translateX(-80px); opacity: 0; }
+}
+
+@media (max-width: 800px) {
+    .swipe-overlay { display: flex; }
+}
+
 .data-table th, .data-table td {
     padding: 25px 30px;
     text-align: left;
