@@ -325,8 +325,13 @@ h2 span {
     font-size: 3rem;
     color: var(--accent-dark);
     opacity: 0;
-    animation: swipeGesture 3s 2 forwards ease-in-out; /* Анимация проиграет 2 раза и исчезнет */
+    transition: opacity 0.3s ease;
     filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+}
+
+/* Анимация запускается только когда таблица становится видимой */
+.table-scroll.visible .swipe-hand {
+    animation: swipeGesture 3s 2 forwards ease-in-out;
 }
 
 @keyframes swipeGesture {
