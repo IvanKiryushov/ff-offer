@@ -407,6 +407,64 @@ h2 span {
     box-shadow: 0 30px 60px rgba(0,0,0,0.05);
 }
 
+/* Highlight Grid Section */
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.highlight-panel {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.highlight-panel:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(34, 158, 217, 0.4);
+}
+
+.h-icon {
+    font-size: 1.5rem;
+    color: #229ED9;
+    background: rgba(34, 158, 217, 0.1);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.highlight-panel.marketing .h-icon {
+    color: #ffb347;
+    background: rgba(255, 179, 71, 0.1);
+}
+
+.h-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.h-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0.8;
+}
+
 /* Footer - Isolated Premium Block */
 .premium-footer {
     text-align: center;
