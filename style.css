@@ -1,3 +1,11 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Жестко запрещаем боковой скролл */
+    width: 100%;
+}
+
 :root {
     /* Brand Colors */
     --accent: #E199AF; 
@@ -388,6 +396,18 @@ h2 span {
     h2 { font-size: 2.2rem; }
     .feature-grid { grid-template-columns: 1fr; }
     .matrix-grid { grid-template-columns: 1fr; }
+    
+    /* Исправляем вылет футера на мобилках */
+    .premium-footer {
+        margin: 4rem 0 0 0; /* Убираем отрицательные margin, которые вызывали скролл */
+        padding: 4rem 20px;
+        border-radius: 40px;
+    }
+    
+    .chapter.cta-section {
+        margin-top: 50px !important;
+        padding-bottom: 20px !important;
+    }
 }
 
 @media (max-width: 500px) {
